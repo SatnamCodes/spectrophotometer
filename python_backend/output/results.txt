@@ -1,0 +1,6 @@
+Results Summary
+----------------
+File analyzed: C:/Users/satna/Downloads/sample_data.csv
+Peak: 523.12 nm (Absorbance = 1.015)
+Average Absorbance: 0.131
+Estimated Concentration: 0.00131 M
