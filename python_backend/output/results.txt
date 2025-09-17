@@ -1,1 +1,5 @@
-hi
+File analyzed        : sample_data.csv
+Data points          : 1000
+Peak absorbance      : 1.01 at 523.1 nm
+Average absorbance   : 0.13
+Estimated conc. (M)  : 0.0013

@@ -22,5 +22,27 @@ int main() {
     save_data_csv(csv_path, wavelength, absorbance, len);
 
     printf("Data collection complete. Saved to %s\n", csv_path);
+
+    // Call the Python analysis script
+    printf("Running Python analysis...\n");
+    int py_status = system("python ../python_backend/analysis.py ../data/spectrum.csv");
+    if (py_status != 0) {
+        printf("Python analysis failed.\n");
+        return 1;
+    }
+
+    // Print the results from results.txt
+    FILE *results = fopen("../python_backend/output/results.txt", "r");
+    if (results) {
+        char line[256];
+        printf("\n--- Analysis Results ---\n");
+        while (fgets(line, sizeof(line), results)) {
+            printf("%s", line);
+        }
+        fclose(results);
+    } else {
+        printf("Could not open results.txt for reading.\n");
+    }
+
     return 0;
 }
