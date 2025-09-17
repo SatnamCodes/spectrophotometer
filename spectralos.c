@@ -68,9 +68,8 @@ void print_formatted_results(const char* filepath) {
         return;
     }
     
-    printf("──────────────────────────────────────────────\n");
-    printf(" SpectralOS Analysis Report\n");
-    printf("──────────────────────────────────────────────\n");
+    printf("SpectralOS Analysis Report\n");
+    printf("--------------------------\n");
     
     char line[256];
     while (fgets(line, sizeof(line), f)) {
@@ -78,8 +77,8 @@ void print_formatted_results(const char* filepath) {
     }
     fclose(f);
     
-    printf("──────────────────────────────────────────────\n");
-    printf("Status: ✅ SUCCESS\n\n");
+    printf("--------------------------\n");
+    printf("Status: SUCCESS\n\n");
 }
 
 void show_exit_animation() {
@@ -147,7 +146,7 @@ void show_file_options_menu(const char* loaded_file) {
                 case 0: // Analyze
                     system("cls");
                     printf("\nAnalyzing data...\n");
-                    show_analysis_animation();
+                    // show_analysis_animation();
                     snprintf(py_cmd, sizeof(py_cmd), "C:/Users/satna/AppData/Local/Programs/Python/Python313/python.exe python_backend/analysis.py \"%s\"", loaded_file);
                     ret = system(py_cmd);
                     if (ret == 0) {
@@ -270,7 +269,7 @@ int main() {
             if (strlen(loaded_file) == 0) {
                 printf("No file loaded. Use 'load <file>' first.\n");
             } else {
-                show_analysis_animation();
+                // show_analysis_animation();
                 char py_cmd[512];
                 snprintf(py_cmd, sizeof(py_cmd), "C:/Users/satna/AppData/Local/Programs/Python/Python313/python.exe python_backend/analysis.py \"%s\"", loaded_file);
                 int ret = system(py_cmd);
